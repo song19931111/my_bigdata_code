@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration name="defaultConfiguration" status="INFO" strict="true" monitorInterval="60">
+<properties>
+    <property name="pattern">[CONSOLE] %d{yyyy-MM-dd'T'HH:mm:ss.SSS.zzz} (%r ms) %5p (%c{1}:%L) - %m%n</property>
+</properties>
+
+<Appenders>
+    <Console name="console" type="Console">
+        <PatternLayout pattern="${pattern}" />
+        <!-- <JSONLayout /> -->
+    </Console>
+</Appenders>
+<Loggers>
+    <Root level="INFO">
+        <AppenderRef ref="console" />
+    </Root>
+</Loggers>
+</Configuration>

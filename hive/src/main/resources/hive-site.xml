@@ -1,0 +1,11 @@
+<configuration>
+    <property>
+        <name>hive.metastore.uris</name>
+        <value>thrift://192.168.19.27:9083</value>
+    </property>
+    <!--<properties>-->
+        <!--<name>hive.server2.proxy.user</name>-->
+        <!--<value>spark</value>-->
+    <!--</properties>-->
+
+</configuration>
