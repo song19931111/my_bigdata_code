@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace ="com.nd.s414567.mapper.SupplierMapper">
-
-    <select id="selectSupplierById" resultType="com.nd.s414567.po.Supplier" parameterType="java.lang.Integer">
-        select supplierid  as supplierId,name,tel from bus_supplier
-        where supplierid=#{id}
-    </select>
-</mapper>
