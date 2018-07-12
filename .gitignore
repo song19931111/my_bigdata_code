@@ -1,6 +1,7 @@
 *.class
 *.apk
 *.jar
+*.iml
 bin/
 gen/
 .settings/
