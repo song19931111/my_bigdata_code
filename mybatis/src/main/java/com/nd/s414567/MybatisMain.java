@@ -1,6 +1,10 @@
 package com.nd.s414567;
 
+import com.nd.s414567.entity.TUser;
+import com.nd.s414567.entity.TUserRole;
 import com.nd.s414567.mapper.SupplierMapper;
+import com.nd.s414567.mapper.TUserMapper;
+import com.nd.s414567.mapper.TUserRoleMapper;
 import com.nd.s414567.mapper.UserMapper;
 import com.nd.s414567.po.Supplier;
 import com.nd.s414567.po.User;
@@ -26,9 +30,13 @@ public class MybatisMain {
 
         SqlSessionFactory build = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = build.openSession();
-        SupplierMapper mapper = sqlSession.getMapper(SupplierMapper.class);
-        Supplier supplier = mapper.selectSupplierById(6);
-        System.out.println(supplier);
+        TUserRoleMapper mapper = sqlSession.getMapper(TUserRoleMapper.class);
+        //List<TUser> tUsers = mapper.selectUserJobList();
+        List<TUserRole> tUserRoles= mapper.selectUserAndRole();
+        //List<TUser> tUsers = mapper.selectUserJobList();
+        for(TUserRole userRole:tUserRoles){
+            System.out.println(userRole.getRole().getRoleName());
+        }
 
     }
 }

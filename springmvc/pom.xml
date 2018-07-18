@@ -7,9 +7,6 @@
   <groupId>com.nd.s414567</groupId>
   <artifactId>springmvc</artifactId>
   <version>1.0</version>
-    <modules>
-        <module>LxbGraph</module>
-    </modules>
     <packaging>pom</packaging>
 
   <name>springmvc Maven Webapp</name>
