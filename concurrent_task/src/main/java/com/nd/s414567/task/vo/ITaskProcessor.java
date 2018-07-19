@@ -8,5 +8,5 @@ package com.nd.s414567.task.vo;
  */
 public interface ITaskProcessor<T,R>{
 
-    TaskResult<R> ExecuteTask(T obj);
+    TaskResult<R> executeTask(T data);
 }

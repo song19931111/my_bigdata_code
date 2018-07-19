@@ -1,5 +1,6 @@
 package com.nd.s414567.task.vo;
 
+import com.nd.s414567.task.CheckJobProcessor;
 import javafx.concurrent.Task;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class JobInfo<R> {
      */
     private final String jobName;
     /**
-     *  工作任务的个数
+     *  工作任务的个数，有多少个task
      */
     private final int jobLength;
 
@@ -49,8 +50,9 @@ public class JobInfo<R> {
      */
     private final long expireTime;
 
-
-
+    public ITaskProcessor<?, ?> getTaskProcessor() {
+        return taskProcessor;
+    }
 
     public JobInfo(String jobName, int jobLength, ITaskProcessor<?, ?> taskProcessor, long expireTime) {
         this.jobName = jobName;
@@ -59,6 +61,7 @@ public class JobInfo<R> {
         this.expireTime = expireTime;
         this.successCount = new AtomicInteger(0);
         this.taskProcessorCount = new AtomicInteger(0);
+        this.taskDetailQueue = new LinkedBlockingDeque<TaskResult<R>>(jobLength);
     }
 
 
@@ -71,6 +74,11 @@ public class JobInfo<R> {
         return taskProcessorCount.get();
     }
 
+
+    public int getFailCount(){
+        return taskProcessorCount.get()-successCount.get();
+    }
+
     public List<TaskResult<R>>getTaskDetail(){
         List<TaskResult<R>>taskResults = new ArrayList<>();
         TaskResult<R>taskResult = null;
@@ -80,13 +88,20 @@ public class JobInfo<R> {
         return  taskResults;
 
     }
+    public String getTotalProcess(){
+
+        return  "Success["+successCount.get()+"]"+" /Current["+taskProcessorCount.get()+"] "+"Total["+jobLength+"]";
+    }
     //保证最终一致性，不需要对方法加锁
-    public void addTaskResult(TaskResult<R>taskResult){
+    public void addTaskResult(TaskResult<R>taskResult, CheckJobProcessor checkJobProcessor){
         if(taskResult.getResultType().equals(TaskResultType.Success)){
             successCount.incrementAndGet();
         }
         taskDetailQueue.addLast(taskResult);
         taskProcessorCount.incrementAndGet();
+        if(taskProcessorCount.get() == jobLength){
+            checkJobProcessor.putJob(jobName,expireTime);
+        }
     }
 
 }

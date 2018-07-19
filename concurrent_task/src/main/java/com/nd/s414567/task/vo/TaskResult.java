@@ -21,18 +21,18 @@ public class TaskResult<R> {
     /**
      * 返回失败的原因:
      */
-    private final String result;
+    private final String reason;
 
 
-    public TaskResult(TaskResultType resultType, R returnValue, String result) {
+    public TaskResult(TaskResultType resultType, R returnValue, String reason) {
         this.resultType = resultType;
         this.returnValue = returnValue;
-        this.result = result;
+        this.reason = reason;
     }
     public TaskResult(TaskResultType resultType, R returnValue) {
         this.resultType = resultType;
         this.returnValue = returnValue;
-        this.result = "Success";
+        this.reason = "Success";
     }
     public TaskResultType getResultType() {
         return resultType;
@@ -42,7 +42,9 @@ public class TaskResult<R> {
         return returnValue;
     }
 
-    public String getResult() {
-        return result;
+
+
+    public String getReason() {
+        return reason;
     }
 }
