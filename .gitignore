@@ -1,0 +1,12 @@
+*.class
+*.apk
+*.jar
+*.iml
+bin/
+gen/
+.settings/
+proguard/
+.idea/
+logs
+log
+target
