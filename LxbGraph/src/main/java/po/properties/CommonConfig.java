@@ -40,6 +40,7 @@ public class CommonConfig {
                     put(GraphObject.VALUE_N.className,Class.forName(GraphObject.VALUE_N.className).newInstance());
                     put(GraphObject.BLEEDER.className,Class.forName(GraphObject.BLEEDER.className).newInstance());
                     put(GraphObject.OVERFLOW.className,Class.forName(GraphObject.OVERFLOW.className).newInstance());
+                    put(GraphObject.TEXT.className,Class.forName(GraphObject.TEXT.className).newInstance());
 
                 } catch (InstantiationException e) {
                     e.printStackTrace();
@@ -2161,6 +2162,50 @@ public class CommonConfig {
                     add("iN");
                 }});
             }};
+        }
+    }
+
+
+
+    public static class Text implements ICommonConfig {
+        public Map getAttrs() {
+            return this.attrs;
+        }
+
+        public Text() {
+            this.attrs = JSONObject.parseObject(attrText, Map.class);
+        }
+
+        //public Map groups;
+        //public Map property;
+        public Map attrs;
+
+        private String attrText = "{" +
+                "\"text\": {" +
+                "\"fill\": \"black\"," +
+                "\"text\": \"ÎÄ±¾\"," +
+                "\"font-family\": \"Montserrat\"," +
+                "\"font-weight\": \"normal\"" +
+                "}," +
+                "\".\": {" +
+                "\"data-tooltip-position\": \"left\"," +
+                "\"data-tooltip-position-selector\": \".joint-stencil\"" +
+                "}" +
+                "}";
+
+        @Override
+        public List<List<String>> getGroup() {
+            return null;
+        }
+
+        @Override
+        public Map getProperty() {
+            return null;
+        }
+
+        @Override
+        public Map getGroups() {
+            return null;
         }
     }
 

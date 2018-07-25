@@ -1,0 +1,2 @@
+GSZZTYPE [a-z]*
+GSZZMESSAGE (?<=message":").*(?=","fields)

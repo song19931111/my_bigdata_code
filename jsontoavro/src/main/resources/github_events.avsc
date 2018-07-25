@@ -1,0 +1,177 @@
+{
+	"type": "record",
+	"name": "github_events",
+	"namespace": "cn.nd.bigdata.analytics",
+	"doc": "github_events",
+	"fields": [{
+		"name": "event_id",
+		"type": "long",
+		"doc": "event_id",
+		"default": 0
+	},
+	{
+		"name": "event_name",
+		"type": "string",
+		"doc": "event_name",
+		"default": ""
+	},
+	{
+		"name": "event_public",
+		"type": "boolean",
+		"doc": "event_public",
+		"default": false
+	},
+	{
+		"name": "event_payload",
+		"type": "string",
+		"doc": "event_payload",
+		"default": ""
+	},
+	{
+		"name": "event_created_at",
+		"type": {
+			"type": "long",
+			"logicalType": "timestamp-millis"
+		},
+		"doc": "event_created_at",
+		"default": 0
+	},
+	{
+		"name": "event_received_at",
+		"type": {
+			"type": "long",
+			"logicalType": "timestamp-millis"
+		},
+		"doc": "event_received_at",
+		"default": 0
+	},
+	{
+		"name": "user_id",
+		"type": "long",
+		"doc": "user_id",
+		"default": 0
+	},
+	{
+		"name": "user_login",
+		"type": "string",
+		"doc": "user_login",
+		"default": ""
+	},
+	{
+		"name": "user_gravatar_id",
+		"type": "string",
+		"doc": "user_gravatar_id",
+		"default": ""
+	},
+	{
+		"name": "user_avatar_url",
+		"type": "string",
+		"doc": "user_avatar_url",
+		"default": ""
+	},
+	{
+		"name": "user_url",
+		"type": "string",
+		"doc": "user_url",
+		"default": ""
+	},
+	{
+		"name": "repo_id",
+		"type": "long",
+		"doc": "repo_id",
+		"default": 0
+	},
+	{
+		"name": "repo_name",
+		"type": "string",
+		"doc": "repo_name",
+		"default": ""
+	},
+	{
+		"name": "repo_url",
+		"type": "string",
+		"doc": "repo_url",
+		"default": ""
+	},
+	{
+		"name": "org_id",
+		"type": "long",
+		"doc": "org_id",
+		"default": 0
+	},
+	{
+		"name": "org_login",
+		"type": "string",
+		"doc": "org_login",
+		"default": ""
+	},
+	{
+		"name": "org_gravatar_id",
+		"type": "string",
+		"doc": "org_gravatar_id",
+		"default": ""
+	},
+	{
+		"name": "org_avatar_url",
+		"type": "string",
+		"doc": "org_avatar_url",
+		"default": ""
+	},
+	{
+		"name": "org_url",
+		"type": "string",
+		"doc": "org_url",
+		"default": ""
+	},
+	{
+		"name": "time_date_month",
+		"type": {
+			"type": "int",
+			"logicalType": "date"
+		},
+		"doc": "yyyy-MM-dd，只记录每月第一天",
+		"default": 0
+	},
+	{
+		"name": "time_date_week",
+		"type": {
+			"type": "int",
+			"logicalType": "date"
+		},
+		"doc": "yyyy-MM-dd，当前日期所在的周一，记录当天日期",
+		"default": 0
+	},
+	{
+		"name": "time_date_hour",
+		"type": {
+			"type": "long",
+			"logicalType": "timestamp-millis"
+		},
+		"doc": "yyyy-MM-dd'T'HH:00:00",
+		"default": 0
+	},
+	{
+		"name": "time_date_hour_minute",
+		"type": {
+			"type": "long",
+			"logicalType": "timestamp-millis"
+		},
+		"doc": "yyyy-MM-dd'T'HH:mm:00",
+		"default": 0
+	},
+	{
+		"name": "time_datetime",
+		"type": {
+			"type": "long",
+			"logicalType": "timestamp-millis"
+		},
+		"doc": "yyyy-MM-dd'T'HH:mm:ss",
+		"default": 0
+	},
+	{
+		"name": "time_millis",
+		"type": "long",
+		"doc": "1970至今毫秒数",
+		"default": 0
+	}]
+}

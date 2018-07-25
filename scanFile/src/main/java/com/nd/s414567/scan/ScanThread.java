@@ -42,7 +42,7 @@ public class ScanThread implements Runnable{
                     }
                 }else{
                     fileStatus.setNeedRead(false);
-                    //还要再次判断，有可能在5s内多次修改。
+
                 }
             }else{
                 FileStatus fileStatus = new FileStatus();

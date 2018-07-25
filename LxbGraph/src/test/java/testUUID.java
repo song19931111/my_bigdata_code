@@ -57,7 +57,7 @@ public class testUUID {
 
         //建立一张图
        Graph graph = new Graph();
-//       Pipe pipe1 = new Pipe("管道1",10.0,100.0);
+       Pipe pipe1 = new Pipe("管道1",10.0,100.0);
 //       Pipe pipe2 = new Pipe("管道2",60.0,100.0);
 //       OutPool pool = new OutPool("出水池",0.0,100.0);
 //       Insump  insumppool = new Insump("进水池",200.0,100.0);
@@ -65,15 +65,17 @@ public class testUUID {
 //        Node node2 = new Node("节点2",35.0,100.0);
 //        Node node3 = new Node("节点3",65.0,100.0);
 
-    Surgetank surgetank = new Surgetank("分水口",1.0,10.0);
-    OverFlow overFlow = new OverFlow("溢流井",2.0,3.0);
-    Value_N value_n = new Value_N("调流阀",1.3,3.5);
-    Bleeder bleeder = new Bleeder("分水口",1.3,3.5);
-    graph.addEquipment(surgetank);
-    graph.addEquipment(overFlow);
-    graph.addEquipment(value_n);
-    graph.addEquipment(bleeder);
-
+//    Surgetank surgetank = new Surgetank("分水口",1.0,10.0);
+//    OverFlow overFlow = new OverFlow("溢流井",2.0,3.0);
+//    Value_N value_n = new Value_N("调流阀",1.3,3.5);
+//    Bleeder bleeder = new Bleeder("分水口",1.3,3.5);
+//    graph.addEquipment(surgetank);
+//    graph.addEquipment(overFlow);
+//    graph.addEquipment(value_n);
+//    graph.addEquipment(bleeder);
+        Text text = new Text("名字",10.0,20.0);
+        graph.addEquipment(text);
+        graph.addEquipment(pipe1);
 //        graph.addLink(pool,node1);
 //        graph.addLink(node1,pipe1);
 //        graph.addLink(pipe1,node2);

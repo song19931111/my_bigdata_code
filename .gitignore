@@ -10,3 +10,4 @@ proguard/
 logs
 log
 target
+*.mmdb

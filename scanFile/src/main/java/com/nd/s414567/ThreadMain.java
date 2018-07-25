@@ -22,14 +22,14 @@ import java.util.concurrent.*;
 public class ThreadMain {
     public static  void main(String args[]) throws InterruptedException {
         ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(Runtime.getRuntime().availableProcessors()*2+1);
-        executorService.scheduleAtFixedRate(new ScanThread("D:\\MirServer\\LogServer\\BaseDir\\2018-05-16"),1000,3000,TimeUnit.MILLISECONDS);
+        //executorService.scheduleAtFixedRate(new ScanThread("D:\\MirServer\\LogServer\\BaseDir\\2018-05-16"),1000,3000,TimeUnit.MILLISECONDS);
+        executorService.scheduleAtFixedRate(new ScanThread("D:\\MirServer\\LogServer\\BaseDir\\2018-02-06"),1000,3000,TimeUnit.MILLISECONDS);
+        executorService.scheduleAtFixedRate(new ScanThread("D:\\MirServer\\LogServer\\BaseDir\\2018-02-07"),1000,3000,TimeUnit.MILLISECONDS);
+        executorService.scheduleAtFixedRate(new ScanThread("D:\\MirServer\\LogServer\\BaseDir\\2018-02-08"),1000,3000,TimeUnit.MILLISECONDS);
+        executorService.scheduleAtFixedRate(new ScanThread("D:\\MirServer\\LogServer\\BaseDir\\2018-02-09"),1000,3000,TimeUnit.MILLISECONDS);
+
 
         ExecutorService execute = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() * 2 + 1);
-
-
-
-
-
 
 
         Thread t = new Thread(new Runnable() {
@@ -40,7 +40,7 @@ public class ThreadMain {
                     Random r = new Random();
                     int randomIndex = r.nextInt(10);
 
-                    File file = new File("D:\\MirServer\\LogServer\\BaseDir\\2018-05-16\\log"+String.valueOf(randomIndex)+".txt");
+                    File file = new File("D:\\MirServer\\LogServer\\BaseDir\\2018-02-09\\log"+String.valueOf(randomIndex)+".txt");
                     try {
                          fileWriter = new FileWriter(file,true);
                          for(int i=0;i<10;i++)

@@ -23,7 +23,8 @@ public enum  GraphObject{
     VALUE_N(9,CommonConfig.Value_N.class.getName()),
     BLEEDER(10,CommonConfig.Bleeder.class.getName()),
     SURGETANK(11,CommonConfig.Surgetank.class.getName()),
-    OVERFLOW(12,CommonConfig.Overflow.class.getName());
+    OVERFLOW(12,CommonConfig.Overflow.class.getName()),
+    TEXT(13,CommonConfig.Text.class.getName());
 
 
 

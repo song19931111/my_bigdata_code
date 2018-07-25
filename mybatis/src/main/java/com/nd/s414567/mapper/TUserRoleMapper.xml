@@ -26,7 +26,7 @@
 
   <select id="selectUserAndRole" resultMap="userAndRole">
     select
-      a.user_id,
+      a.user_id,key
       a.role_id,
       b.id r_id,
       b.role_name r_role_name,
