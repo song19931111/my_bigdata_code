@@ -22,17 +22,20 @@ public class Text implements IEquipment{
     Ports ports = null;
     Position position;
     Integer angle= 0;
+    Object attrs;
     String id =UUID.randomUUID().toString();
     Map<String,Object> size = new HashMap<String,Object>(){{
         put("width",36);
         put("height",21);
     }};
     Object property = CommonConfig.getInstance(GraphObject.TEXT).getProperty();
-    Object attrs = CommonConfig.getInstance(GraphObject.TEXT).getAttrs();
+
     public Text(String name, Double x , Double y) throws IllegalAccessException, ClassNotFoundException, InstantiationException {
         this.z = CommonConfig.getZ();
         this.position = new Position(x,y);
         modelText = name;
+        attrs = CommonConfig.getInstance(GraphObject.TEXT).getAttrs();
+      //  System.out.println(attrs.hashCode());
          Map<String,Object>mapAttr = (Map<String,Object>)attrs;
         (( Map<String,Object> )mapAttr.get("text")).put("text",name);
 

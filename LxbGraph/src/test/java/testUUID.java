@@ -73,9 +73,14 @@ public class testUUID {
 //    graph.addEquipment(overFlow);
 //    graph.addEquipment(value_n);
 //    graph.addEquipment(bleeder);
-        Text text = new Text("Ãû×Ö",10.0,20.0);
+        Text text = new Text("Ãû×Ö1",10.0,20.0);
+        System.out.println(text.getAttrs());
+        Text text1 = new Text("Ãû×Ö2",10.0,20.0);
+        //System.out.println(text1.getAttrs());
+
         graph.addEquipment(text);
-        graph.addEquipment(pipe1);
+        graph.addEquipment(text1);
+        //graph.addEquipment(pipe1);
 //        graph.addLink(pool,node1);
 //        graph.addLink(node1,pipe1);
 //        graph.addLink(pipe1,node2);

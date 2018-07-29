@@ -3,15 +3,13 @@ package flowcount;
 import com.sun.tools.javac.comp.Flow;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import selfPartition.ProvincePartition;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -25,7 +23,7 @@ import java.io.IOException;
  */
 public class MapReduceClass {
 
-    public static class FlowBean implements Writable{
+    public static class FlowBean implements WritableComparable<FlowBean> {
         private long upFlow;
         private long downloadFlow;
         private long sumFlow;
@@ -75,6 +73,14 @@ public class MapReduceClass {
                     ", sumFlow=" + sumFlow +
                     '}';
         }
+
+        @Override
+        public int compareTo(FlowBean o) {
+
+            //倒排
+            return this.sumFlow>o.sumFlow?-1:1;
+
+        }
     }
 
 
@@ -118,10 +124,16 @@ public class MapReduceClass {
         job.setReducerClass(FlowReducer.class);
 
         job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputKeyClass(FlowBean.class);
+        job.setMapOutputValueClass(FlowBean.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(FlowBean.class);
+
+
+        //设置自定义分区:
+        job.setPartitionerClass(ProvincePartition.class);
+        //设置相应分区数量的reduce：
+        job.setNumReduceTasks(5);
 
         FileInputFormat.setInputPaths(job,new Path(args[0]));
         FileOutputFormat.setOutputPath(job,new Path(args[1]));

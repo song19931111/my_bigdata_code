@@ -2169,12 +2169,13 @@ public class CommonConfig {
 
     public static class Text implements ICommonConfig {
         public Map getAttrs() {
-            return this.attrs;
+
+            String attrTextCp =  new String(attrText);
+            this.attrs = JSONObject.parseObject(attrTextCp, Map.class);
+
+            return attrs;
         }
 
-        public Text() {
-            this.attrs = JSONObject.parseObject(attrText, Map.class);
-        }
 
         //public Map groups;
         //public Map property;
@@ -2192,7 +2193,9 @@ public class CommonConfig {
                 "\"data-tooltip-position-selector\": \".joint-stencil\"" +
                 "}" +
                 "}";
-
+        public Text() {
+            this.attrs = JSONObject.parseObject(attrText, Map.class);
+        }
         @Override
         public List<List<String>> getGroup() {
             return null;
